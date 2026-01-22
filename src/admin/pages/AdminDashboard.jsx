@@ -1,8 +1,40 @@
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
+  const [faculty , setFaculty] = useState([])
+  const [notes, setNotes] = useState([])
+  const [gallery, setGallery] = useState([])
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const fetchFaculty = async() =>{
+      const res = await fetch(`${import.meta.env.VITE_API_BASE}/api/faculty/`)
+      const data = await res.json();
+      setFaculty(data);
+      
+    }
+    const fetchGallery = async () =>{
+      const res = await fetch(`${import.meta.env.VITE_API_BASE}/api/gallery/`)
+      const data = res.json();
+      setGallery(data);
+    }
+    const fetchNotes = async () =>{
+      const res = await fetch(`${import.meta.env.VITE_API_BASE}/api/notes/`)
+      const data = res.json();
+      setNotes(data);
+    }
+
+
+    fetchFaculty();
+    fetchGallery();
+    fetchNotes();
+
+  },[])
+
+
+
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -25,6 +57,8 @@ const AdminDashboard = () => {
             <p className="text-white">
               Add, update & delete gallery images
             </p>
+            <p className="text-md font-semibold">Total Gallery Uploaded : {gallery.length>0? gallery.length: "0"}</p>
+
           </div>
         </Link>
 
@@ -34,6 +68,7 @@ const AdminDashboard = () => {
             <p className="text-white">
               Manage faculty details & profiles
             </p>
+            <p className="text-md font-semibold">Total Faculty : {faculty.length>0? faculty.length: "0"}</p>
           </div>
         </Link>
 
@@ -43,6 +78,8 @@ const AdminDashboard = () => {
             <p className="text-white">
               upload & Manage Notes
             </p>
+            <p className="text-md font-semibold">Total Notes Uploaded : {notes.length>0? notes.length: "0"}</p>
+
           </div>
         </Link>
 
