@@ -32,7 +32,10 @@ const Faculty = () => {
 
       <div className="max-w-6xl mx-auto px-6 py-16">
         {loading && (
-          <p className="text-center text-gray-600">Loading faculty...</p>
+          <div className="mx-auto">
+            <img className="mx-auto" width={30} height={30} src="loader.gif"></img>
+          </div>
+          // <p className="text-center text-gray-600">Loading faculty...</p>
         )}
 
         {!loading && faculty.length === 0 && (
