@@ -5,6 +5,7 @@ const Gallery = () => {
 
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(
@@ -13,6 +14,8 @@ const Gallery = () => {
     )
       .then(res => res.json())
       .then(data => setImages(data));
+    setLoading(false);
+
   }, [category]);
 
   return (
@@ -35,6 +38,12 @@ const Gallery = () => {
           ))}
         </div>
 
+        {loading && (
+          <div className="mx-auto">
+            <img className="mx-auto" width={30} height={30} src="loader.gif"></img>
+          </div>
+        )}
+       
 
         {!images.length > 0 && <div className="font-bold text-gray-500 border mt-6 max-w-5xl mx-auto text-center">
           <div>No Images are Uploaded Right Now!..</div>
