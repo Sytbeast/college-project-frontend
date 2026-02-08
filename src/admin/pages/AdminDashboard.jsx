@@ -17,12 +17,12 @@ const AdminDashboard = () => {
     }
     const fetchGallery = async () =>{
       const res = await fetch(`${import.meta.env.VITE_API_BASE}/api/gallery/`)
-      const data = res.json();
+      const data = await res.json();
       setGallery(data);
     }
     const fetchNotes = async () =>{
       const res = await fetch(`${import.meta.env.VITE_API_BASE}/api/notes/`)
-      const data = res.json();
+      const data = await res.json();
       setNotes(data);
     }
 
@@ -97,3 +97,4 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
+
