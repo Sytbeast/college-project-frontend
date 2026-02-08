@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 
 const Notes = () => {
     const [notes, setNotes] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(`${import.meta.env.VITE_API_BASE}/api/notes`)
             .then(res => res.json())
             .then(data => setNotes(data));
+        setLoading(false);
     }, []);
 
     return (
@@ -20,6 +22,12 @@ const Notes = () => {
 
 
             <div className="max-w-5xl mx-auto p-6">
+
+                {loading && (
+                    <div className="mx-auto">
+                        <img className="mx-auto" width={30} height={30} src="loader.gif"></img>
+                    </div>
+                )}
 
                 {!notes.length > 0 && <div className="font-bold text-gray-500 border mt-3 mx-auto text-center">
                     <div>No Notes are Uploaded Right Now!..</div>
