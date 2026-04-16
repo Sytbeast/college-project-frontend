@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <div className='flex items-center justify-between backdrop:blur-lg px-4 py-5 text-xs lg:text-base shadow-2xl bg-slate-100'>
       <div className=' text-lg md:text-xl text-green-500'>
-        <Link className='cursor-pointer text-xl font-dancing font-bold md:text-3xl' to="/">Kirodimal Degree College.</Link>
+        <Link className='cursor-pointer text-xl font-dancing font-bold md:text-3xl' to="/">Example College.</Link>
       </div>
 
       <ul className='hidden md:flex gap-5'>
