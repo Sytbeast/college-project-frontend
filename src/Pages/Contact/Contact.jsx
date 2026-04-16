@@ -41,9 +41,9 @@ const Contact = () => {
           </h2>
 
           <p className="mb-2"><strong>Department:</strong> Zoology</p>
-          <p className="mb-2"><strong>College:</strong> Kirodimal Government College</p>
+          <p className="mb-2"><strong>College:</strong> Example College</p>
           <p className="mb-2"><strong>City:</strong> Raigarh, Chhattisgarh</p>
-          <p className="mb-2"><strong>Email:</strong> KirodimalDegree@college.gmail</p>
+          <p className="mb-2"><strong>Email:</strong> Example@college.gmail</p>
         </div>
 
         <form action={"https://formspree.io/f/xykkggbj"} method="POST" className="border rounded-xl p-6 shadow">
