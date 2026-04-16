@@ -28,7 +28,7 @@ const Footer = () => {
                     <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
                     <ul className="space-y-3 text-gray-100">
                         <li className="flex items-center gap-2">
-                            <Mail size={18} /> KirodimalDegree@college.edu
+                            <Mail size={18} /> Example@college.edu
                         </li>
                         <li className="flex items-center gap-2">
                             <Phone size={18} /> +91 987X5 XXX0X
